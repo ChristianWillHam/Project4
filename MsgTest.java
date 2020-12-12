@@ -244,6 +244,15 @@ class MsgTest {
 	
 	// ------------------------------------------------------------------------
 	
+	@Test
+	void testEncrypt_palindrome() {												// Test for encrypt() with a
+		String palindrome = "racecar";											// racecar is a palindrome
+		Msg msg = new Msg(palindrome);
+		assertEquals(palindrome, msg.encrypt());								// check if encrypt is equal to palindrome
+	}
+	
+	// ------------------------------------------------------------------------
+	
 	@Test	
 	void testEncrypt_null() {													// Test for encrypt() without initializing content string.
 		try{
