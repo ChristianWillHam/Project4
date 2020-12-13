@@ -1,7 +1,17 @@
-import static org.junit.jupiter.api.Assertions.*;
+/***
+ * Christian Hamilton, Fritz Stapfer Paz, Lauren Gietzen
+ * 12/15/2020
+ * Assignment 4 - CMS 270
+ * 
+ * We worked on this together as a group, and wrote all of the test cases collaboratively while sitting together in a study room.
+ * Because of this, we cannot attribute any part of the code to an individual author, as they are the result of our collaboration.
+ */
 
+// ----- I M P O R T S --------------------------------------------------------
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
+// ----- M s g T e s t --------------------------------------------------------
 class MsgTest {
 
 	// ------------------------------------------------------------------------
@@ -11,13 +21,29 @@ class MsgTest {
 		Msg msg = new Msg("Message", "Fritz", "Lauren", 'e');
 		assertTrue(msg != null);												// Assert that object creates is not null - an instance was created
 	}
+	
+	// ------------------------------------------------------------------------
+	
+	@Test
+	void testMsgStringStringStringChar_instanceOf() {							// Test to make sure StringStringStringChar constructor creates an instance of Msg
+		Msg msg = new Msg("Message", "Fritz", "Lauren", 'e');
+		assertTrue(msg instanceof Msg);											// Assert that object creates is not null - an instance was created
+	}
 
 	// ------------------------------------------------------------------------
 
 	@Test
 	void testMsgString_instance() {												// Test to make sure String constructor creates an instance
 		Msg msg = new Msg("Message");					
-		assertTrue(msg != null);												// Assert that object creates is not null - an instance was created
+		assertTrue(msg != null);												// Assert that object creates is an instance of Msg
+	}
+	
+	// ------------------------------------------------------------------------
+	
+	@Test
+	void testMsgString_instanceOf() {											// Test to make sure String constructor creates an instance of Msg
+		Msg msg = new Msg("Message");
+		assertTrue(msg instanceof Msg);											// Assert that object creates is an instance of Msg
 	}
 
 	// ------------------------------------------------------------------------
@@ -25,6 +51,14 @@ class MsgTest {
 	void testMsg_instance() {													// Test to make sure no-args constructor creates an instance
 		Msg msg = new Msg();
 		assertTrue(msg != null);												// Assert that object creates is not null - an instance was created
+	}
+	
+	// ------------------------------------------------------------------------
+	
+	@Test
+	void testMsg_instanceOf() {													// Test to make sure no-args constructor creates an instance of Msg
+		Msg msg = new Msg();
+		assertTrue(msg instanceof Msg);											// Assert that object creates is an instance of Msg
 	}
 
 	// ------------------------------------------------------------------------
@@ -244,6 +278,15 @@ class MsgTest {
 	
 	// ------------------------------------------------------------------------
 	
+	@Test
+	void testEncrypt_palindrome() {												// Test for encrypt() with a
+		String palindrome = "racecar";											// racecar is a palindrome
+		Msg msg = new Msg(palindrome);
+		assertEquals(palindrome, msg.encrypt());								// check if encrypt is equal to palindrome
+	}
+	
+	// ------------------------------------------------------------------------
+
 	@Test	
 	void testEncrypt_null() {													// Test for encrypt() without initializing content string.
 		try{
